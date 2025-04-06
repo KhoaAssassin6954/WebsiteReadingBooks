@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro";
+}
+
+* {
+  font-size: 100%;
+  font-family: "Be Vietnam Pro";
+}
+
+.menu-bar {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #777;
+  padding: 32px 132px;
+  gap: 51.23px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.menu-bar a {
+  text-decoration: none;
+  color: #777;
+  transition: color 0.3s ease;
+}
+
+.menu-bar a:hover {
+  color: #000;
+}
+
+.menu-bar span {
+  margin: 0 5px;
+  color: #777;
+}
+
+.card {
+  padding: 54px 257px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 36px;
+  border: #000;
+  width: 1422px;
+  height: 400px;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 25.6px;
+}
+.card-content {
+  display: flex;
+  background: #eeeeee;
+  width: 1422px;
+  height: 360x;
+  padding: 20px;
+  border-radius: 36px;
+  gap: 88px;
+}
+.card-content-img-left {
+  width: 696px;
+  height: 360px;
+}
+
+.card-content-overall {
+  width: 525px;
+  height: 240px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-right: 93px;
+}
+.card-content-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+.card-content-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.card-content-reverse {
+  display: flex;
+  gap: 88px;
+  border-radius: 36px;
+  width: 1422px;
+  height: 400px;
+}
+
+.card-content-reverse {
+  display: flex;
+  background: #313131;
+  width: 1422px;
+  height: 360x;
+  padding: 20px;
+  border-radius: 36px;
+  gap: 88px;
+  color: white;
+}
+.card-content-reverse-img-left {
+  width: 696px;
+  height: 360px;
+}
+
+.card-content-reverse-overall {
+  width: 525px;
+  height: 240px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 93px;
+  padding-right: 20px;
+}
+.card-content-reverse-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card-content-reverse-btn:hover {
+  background-color: #000;
+  color: #fff;
+}

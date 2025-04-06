@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro";
+}
+
+* {
+  font-size: 100%;
+  font-family: "Be Vietnam Pro";
+}
+
+.nav {
+  padding: 10px 148px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+  width: 279px;
+  height: 34px;
+}
+
+.search-bar button {
+  font-size: 10px;
+  color: #8e8e8e;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+.search-icon {
+  font-size: 24px;
+  color: #8e8e8e;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.search-bar input {
+  padding: 10px 10px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 400px;
+  line-height: 23.38px;
+  background-color: #eeeeee;
+  width: 160px;
+  height: 19px;
+}
+
+.search-bar .search-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-bar .search-button:hover {
+  color: #555;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
