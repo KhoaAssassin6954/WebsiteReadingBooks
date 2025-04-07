@@ -1,139 +1,89 @@
-/* Reset cơ bản và full viewport cho trang đọc sách */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-  }
-  
-  /* Container chính căn giữa và chiếm full kích thước */
-  #container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  /* Tiêu đề */
-  h1, h3 {
-    text-align: center;
-  }
-  
-  /* Nút nhập file */
-  #importButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  /* Vùng chứa nội dung sách: đặt ở giữa và mở rộng ra 90% của viewport */
-  #contentViewerContainer {
-    position: relative;
-    width: 90vw;
-    height: 90vh;
-    max-width: 1200px;
-    max-height: 100%;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  /* Vùng hiển thị nội dung sách: chiếm toàn bộ khung chứa, có thanh cuộn bên trong */
-  #contentViewer {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    padding: 20px;
-    box-sizing: border-box;
-    scrollbar-width: thin;              /* cho Firefox */
-    scrollbar-color: #888 #f1f1f1;        /* cho Firefox */
-  }
-  
-  /* Tùy chỉnh thanh cuộn cho trình duyệt WebKit */
-  #contentViewer::-webkit-scrollbar {
-    width: 8px;
-  }
-  #contentViewer::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-  #contentViewer::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-  }
-  #contentViewer::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
-  /* Đảm bảo hình ảnh, canvas và thẻ pre không vượt quá khung chứa */
-  #contentViewer img,
-  #contentViewer canvas,
-  #contentViewer pre {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  /* Thanh chứa các marker lịch sử (vẫn giữ nguyên vị trí bên phải trong khung đọc) */
-  #historyMarkers {
-    position: absolute;
-    top: 0;
-    right: 2px;
-    width: 16px;
-    height: 100%;
-    pointer-events: none;
-  }
-  .history-marker {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    cursor: pointer;
-    pointer-events: auto;
-    text-align: center;
-    font-size: 10px;
-    color: #fff;
-  }
-  
-  /* Danh sách sách đã lưu */
-  #savedBooks {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  #bookList {
-    list-style: none;
-    padding: 0;
-  }
-  .book-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 5px;
-    background-color: #fff;
-    cursor: pointer;
-  }
-  .book-item:hover {
-    background-color: #e0e0e0;
-  }
-  .delete-btn {
-    background-color: #ff4d4d;
-    border: none;
-    color: #fff;
-    padding: 4px 8px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 12px;
-  }
-  
+/* File: readingBook.css */
+
+/* Cài đặt giao diện chung */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+#container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#backButton {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+
+/* Vùng chứa nội dung sách */
+#contentViewerContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Vùng hiển thị nội dung sách với scrollbar mặc định */
+/* Thêm padding-right để dành chỗ cho các marker lịch sử */
+#contentViewer {
+  width: 117%;
+  height: 885px;
+  overflow-y: auto;
+  /* padding: 10px;
+  padding-right: 40px; */
+}
+
+/* Container chứa các marker lịch sử, được overlay bên phải */
+#historyMarkers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Style cho mỗi marker lịch sử */
+.history-marker {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  pointer-events: auto;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+}
+
+/* Style cho popup (tooltip) hiển thị thông tin marker */
+.history-tooltip {
+  position: absolute;
+  background: #fff;
+  color: #333;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  font-size: 12px;
+  max-width: 200px;
+  z-index: 1000;
+  display: none;
+}
+.history-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+/* Class để hiển thị tooltip */
+.history-tooltip.show {
+  display: block;
+}

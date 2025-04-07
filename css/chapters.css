@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+#container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.chapter-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 0.2s;
+}
+
+.chapter-item:hover {
+  background-color: #f0f0f0;
+}
