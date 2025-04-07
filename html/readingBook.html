@@ -7,16 +7,45 @@
   <link rel="stylesheet" href="../css/readingBook.css">
 </head>
 <body>
-  <div id="container">
-    <button id="backButton">Back</button>
-    <div id="contentViewerContainer">
-      <div id="contentViewer">
-      </div>
-      <div id="historyMarkers"></div>
-    </div>
+  <!-- Nút Back cố định ở góc trên bên trái -->
+  <button id="backButton">Back</button>
+  
+  <!-- Navigation Marker Style (Dropdown) -->
+  <div id="markerNav">
+    <label for="markerStyleSelect">Marker Style:</label>
+    <select id="markerStyleSelect">
+      <option value="default" selected>Default</option>
+      <option value="offset">Offset</option>
+      <option value="aggregation">Aggregation</option>
+      <option value="combined">Combined</option>
+      <option value="expandable">Expandable</option>
+    </select>
   </div>
-  <!-- Thư viện pdf.js -->
+  
+  <!-- Navigation Marker Color (Dropdown + Color Picker) -->
+  <div id="colorNav">
+    <label for="markerColorSelect">Marker Color:</label>
+    <select id="markerColorSelect">
+      <option value="numbered" selected>Numbered</option>
+      <option value="brightness">Brightness</option>
+      <option value="colorType">Color Type</option>
+      <option value="custom">Custom</option>
+    </select>
+    <!-- Color picker, ẩn mặc định; hiển thị khi chọn Custom -->
+    <input type="color" id="customColorInput" style="display:none;" value="#ff0000">
+  </div>
+  
+  <!-- Vùng hiển thị nội dung sách (chiếm toàn bộ cửa sổ, trừ vùng marker bên phải) -->
+  <div id="contentViewer">
+    <!-- Nội dung sách sẽ được load từ JavaScript -->
+  </div>
+  
+  <!-- Container chứa các marker lịch sử -->
+  <div id="historyMarkers"></div>
+  
+  <!-- Thư viện pdf.js để render file PDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <!-- File JS xử lý logic cho trang Reading Book -->
   <script src="../javascript/readingBook.js"></script>
 </body>
 </html>
