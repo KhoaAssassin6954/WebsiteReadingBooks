@@ -25,6 +25,20 @@ body {
   font-weight: bold;
 }
 
+.notification_logo img {
+  height: 30px;
+  width: 30px;
+  margin: -15px 230px;
+  position: absolute;
+}
+
+.notification_logo button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
