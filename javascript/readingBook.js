@@ -1,5 +1,3 @@
-// File: readingBook.js
-
 // Lấy các phần tử DOM
 const backButton = document.getElementById('backButton');
 const contentViewer = document.getElementById('contentViewer');

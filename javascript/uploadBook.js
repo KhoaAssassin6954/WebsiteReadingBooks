@@ -7,9 +7,9 @@ const modalCoverInput = document.getElementById('modalCoverInput');
 const modalClose = document.querySelector('.modal .close');
 
 const savedBooksKey = 'savedBooks';
-let selectedBookIndex = null; // chỉ số sách được chọn để chỉnh sửa bìa
+let selectedBookIndex = null; 
 
-// Khi nhấn "Import", mở hộp chọn file sách
+// Press IMport to open file input
 importButton.addEventListener('click', () => fileInput.click());
 
 // Xử lý khi chọn file sách
@@ -18,8 +18,9 @@ fileInput.addEventListener('change', (e) => {
   if (file) {
     const ext = file.name.split('.').pop().toLowerCase();
     if (ext === 'doc' || ext === 'docx') {
-      const reader = new FileReader();
-      reader.onload = () => {
+      const reader = new FileReader(); //comvert docx to html
+      // Sử dụng thư viện mammoth.js để chuyển đổi DOCX sang HTML
+      reader.onload = () => { 
         mammoth.extractRawText({ arrayBuffer: reader.result })
           .then(result => {
             const htmlContent = `<pre>${result.value}</pre>`;
@@ -38,7 +39,7 @@ fileInput.addEventListener('change', (e) => {
           });
       };
       reader.readAsArrayBuffer(file);
-      
+      // Chuyển đổi file DOCX sang ArrayBuffer để sử dụng với mammoth.js
     } else if (ext === 'pdf') {
       const reader = new FileReader();
       reader.onload = () => {
@@ -77,17 +78,17 @@ fileInput.addEventListener('change', (e) => {
   }
 });
 
-// Lấy danh sách sách từ localStorage
+// Get book from localStorage
 function getSavedBooks() {
   return JSON.parse(localStorage.getItem(savedBooksKey)) || [];
 }
 
-// Lưu danh sách sách vào localStorage
+// Save book localStorage
 function saveBooks(books) {
   localStorage.setItem(savedBooksKey, JSON.stringify(books));
 }
 
-// Thêm cuốn sách mới và cập nhật danh sách hiển thị
+// Add new book to localStorage and update the list
 function addBook(book) {
   const books = getSavedBooks();
   books.push(book);
@@ -95,7 +96,7 @@ function addBook(book) {
   updateBookList();
 }
 
-// Cập nhật danh sách sách (hiển thị dạng bìa)
+// Update the book list in the UI cover
 function updateBookList() {
   const books = getSavedBooks();
   bookList.innerHTML = '';
@@ -126,7 +127,7 @@ function updateBookList() {
     }
     li.appendChild(img);
     
-    // Nút Delete để xoá sách
+    // Delete button to remove book
     const deleteBtn = document.createElement('button');
     deleteBtn.className = 'action-btn delete-btn';
     deleteBtn.textContent = 'X';
@@ -136,7 +137,7 @@ function updateBookList() {
     });
     li.appendChild(deleteBtn);
     
-    // Nút Edit để thay đổi ảnh bìa
+    // Edite button to edit book cover
     const editBtn = document.createElement('button');
     editBtn.className = 'action-btn edit-btn';
     editBtn.textContent = 'Edit';
