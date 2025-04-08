@@ -347,7 +347,7 @@ function updateHistoryMarkers() {
   }
 }
 
-// Lắng nghe sự kiện cuộn để cập nhật tiến độ và ghi nhận marker
+// Listen the scroll event on contentViewer to update the current book progress
 contentViewer.addEventListener('scroll', () => {
   if (currentBookIndex === null) return;
   const scrollPos = contentViewer.scrollTop;
